@@ -12,6 +12,12 @@ test4=87
 
 #declare a average variable
 average=0
+## Modify program for one more test
+# add a new tesst, and new variable to add the test
+# add a new variable for number of test
+test5= 91
+sum = test1 + test2 + test3 + test4 + test5
+num = 5
 print(type(average))
 #Four basic operators
 # Sum +
@@ -21,8 +27,11 @@ print(type(average))
 average= (test1+test2+test3+test4)/4
 # Let's print result
 print(type(average))
-#command using keywords
+
+# declare average
+
 print (average)
+average= sum/num
 print ("The test average is")
 print(average)
 
