@@ -12,7 +12,7 @@ os.system('cls')
 score=0
 choice=0
 maxScore=0
-#function to update dashes and letters
+#for loops are used to loop through an iterable object performing the same actions for each entry
 def updateWord(word, guesses, letCount):
     for letter in word:
         if letter in guesses:
@@ -35,6 +35,7 @@ def Menu():
     print("#       To exit select 5               #")
     print("########################################")
     print()
+    #The try block tests a block of code for errors and the except block handles the error.
     while 1:
         sel=input("What would you like to do? ")
         try:
@@ -50,7 +51,7 @@ def scoreBoard():
     myScore=open('score.txt', 'r')
     print(myScore.read())
     myScore.close()
-
+    #myScore is a variable that I created where it is a memory location to store values.
     input("Are you ready to leave")
 def ExitNow():
     print("I need to write in my file")
@@ -67,7 +68,7 @@ def selWord(sel):
     return word
 # create the function for the score board and comeback to main menu
 # create the function to Exit, where you write to the file the max score and exit game
-
+#These are the lists that I created which store multiple values in a single variable code
 animals=["tiger", "elephant", "lion", "bear", "cat", "snake"]
 fruits=["banana", "strawberries", "apple", "pear", "mango", "lemon"]
 compParts=["keyboard", "Monitors","trackpad", "case","Operating System"]
@@ -93,6 +94,8 @@ while sel<=3:
     guesses=''
     score=0
     letCount=updateWord(word, guesses, letCount)
+    #The IF statement evaluates whether an expression is true or false
+    #The ELSE statement is used to conditionally control the statement
     while turns > 0 and letCount<wordCount:
         print()
         newguess=input (name + " Give me a letter ")
@@ -115,4 +118,4 @@ while sel<=3:
     anotherFile = open("score.txt", "a")
     anotherFile.write("\n" + name +"  highest score: \t" + str(maxScore))
     anotherFile.close()
-
+#anotherFile is a variable I created to store my score after each round is played 
