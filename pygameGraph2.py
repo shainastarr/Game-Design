@@ -113,6 +113,6 @@ while run:
     pygame.display.flip() 
     if radius >= height/2:
         run=False
-    
-
-pygame.quit()
+        
+if radius>40:
+    pygame.quit()
