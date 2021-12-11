@@ -1,5 +1,5 @@
-#MAria Suarez
-#CReate Window for settings in your game
+#Shaina Starr
+#Create Window for settings in your game
 
 import pygame, os,random,time
 
@@ -8,6 +8,7 @@ os.system('cls')
 pygame.init()
 
 ## LISTS FOR MENU MESSAGES
+platform_pos=[(200,530), (300,530),(300,400),(550,400),(560,530), (790,530)]
 
 screenMessage=[ "800x800", "800x600", "600x600"]
 settingMessages=["Screen Size", "Background colors", "Object Colors","Sounds On/Off"]
@@ -87,7 +88,7 @@ appley=490
 point=(applex, appley)
 apple=pygame.image.load('Images\\apple-removebg-preview.png')
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-COUNT = 12
+COUNT = 10
 jumpCount = COUNT
 Jump = False
 Left = False
@@ -324,7 +325,7 @@ while run:
                     SETTINGS = False
                     flag=False
             if SCREEN:
-                Screen_size()
+                # Screen_size()
                 display_Title("Back", HEIGHT-100)
                 pygame.display.update()
                 x=70
@@ -337,11 +338,12 @@ while run:
                     text=MENU_FONT.render(word,10, BLACK)
                     screen.blit(text, (x+wbox+10, y))
                     pygame.display.flip()
-                    pygame.time.delay(100)
+                    pygame.time.delay(10)
                     y += 100
                     square.y=y
                     counter=1
                 counter+=1
+                
                 
                 
                 # if xm>450 and xm <540 and ym>200 and ym<290: 
@@ -390,6 +392,7 @@ while run:
                     SETTINGS = True
                     OBJECTCOLOR = False
             if LEVEL1:
+                counter=1
                 Level1()
                 #play game here
                 check=True
@@ -430,32 +433,42 @@ while run:
                         Left = False
                         WalkCount= 0
 
-                        
-                    # screen.blit(char,(guyx, guyy))
-                    # pygame.display.flip()
-
+    
+                    
                     if not Jump:
                         if keyPressed[pygame.K_SPACE]:
                             Jump = True
                             Right = False
                             Left = False
                             WalkCount = 0
-                            # print(guyx,guyy)
                     else:
                         if jumpCount>=-COUNT:
                             guyy-= jumpCount*abs(jumpCount)/2
                             jumpCount -=1
-                            print(guyx, guyy)
-                        if guyy>=400 and guyx<= 270 and guyx>= 170:
+
+                        if guyy>=435 and guyx<=300 and counter==1:
+                            guyy= 530
+                            counter +=1
                             Jump=COUNT
-                            Jump=False
-                        if guyy>=309 and guyx<=390 and guyx>=270:
+
+                        if guyy>=309 and guyx<=300 and guyx<=550 and counter ==2:
+                            guyy=400
+
+                        if guyy>=420 and guyx<=790 and guyx>=560:
+                            guyy=530
+                            counter=4
                             Jump=COUNT
-                            Jump=False
-                        if guyy>=330 and guyx<=520 and guyx>=646:
+                            
+                            counter +=1
                             Jump=COUNT
+
+                        
+                        else:
+                            jumpCount=COUNT
                             Jump=False
-                                
+
+
+                
 
                     redrawGameWindow()
                     pygame.display.flip()
